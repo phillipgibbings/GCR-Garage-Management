@@ -1,0 +1,11 @@
+C:\Users\phill\source\repos\GCR Garage Management\GCR Garage Management\bin\Debug\GCR Garage Management.exe.config
+C:\Users\phill\source\repos\GCR Garage Management\GCR Garage Management\bin\Debug\GCR Garage Management.exe
+C:\Users\phill\source\repos\GCR Garage Management\GCR Garage Management\bin\Debug\GCR Garage Management.pdb
+C:\Users\phill\source\repos\GCR Garage Management\GCR Garage Management\obj\Debug\GCR Garage Management.csproj.AssemblyReference.cache
+C:\Users\phill\source\repos\GCR Garage Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Properties.Resources.resources
+C:\Users\phill\source\repos\GCR Garage Management\GCR Garage Management\obj\Debug\GCR Garage Management.csproj.GenerateResource.cache
+C:\Users\phill\source\repos\GCR Garage Management\GCR Garage Management\obj\Debug\GCR Garage Management.csproj.CoreCompileInputs.cache
+C:\Users\phill\source\repos\GCR Garage Management\GCR Garage Management\obj\Debug\GCR Garage Management.exe
+C:\Users\phill\source\repos\GCR Garage Management\GCR Garage Management\obj\Debug\GCR Garage Management.pdb
+C:\Users\phill\source\repos\GCR Garage Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.frm_Login.resources
+C:\Users\phill\source\repos\GCR Garage Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.frm_Main.resources
