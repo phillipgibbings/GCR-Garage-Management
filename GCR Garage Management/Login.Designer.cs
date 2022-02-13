@@ -36,16 +36,16 @@ namespace GCR_Garage_Management
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.gbLogin = new System.Windows.Forms.GroupBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.gboxLogin = new System.Windows.Forms.GroupBox();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.Button();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblSQLConnection = new System.Windows.Forms.ToolStripStatusLabel();
             this.gCRMDBDataSet = new GCR_Garage_Management.GCRMDBDataSet();
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usersTableAdapter = new GCR_Garage_Management.GCRMDBDataSetTableAdapters.UsersTableAdapter();
-            this.gbLogin.SuspendLayout();
+            this.gboxLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gCRMDBDataSet)).BeginInit();
@@ -98,30 +98,20 @@ namespace GCR_Garage_Management
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // gbLogin
+            // gboxLogin
             // 
-            this.gbLogin.Controls.Add(this.linkLabel1);
-            this.gbLogin.Controls.Add(this.lblUsername);
-            this.gbLogin.Controls.Add(this.btnLogin);
-            this.gbLogin.Controls.Add(this.lblPassword);
-            this.gbLogin.Controls.Add(this.txtPassword);
-            this.gbLogin.Controls.Add(this.txtUsername);
-            this.gbLogin.Location = new System.Drawing.Point(138, 12);
-            this.gbLogin.Name = "gbLogin";
-            this.gbLogin.Size = new System.Drawing.Size(246, 123);
-            this.gbLogin.TabIndex = 5;
-            this.gbLogin.TabStop = false;
-            this.gbLogin.Text = "Please Enter Credential\'s";
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(142, 102);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(84, 13);
-            this.linkLabel1.TabIndex = 5;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Reset Password";
+            this.gboxLogin.Controls.Add(this.linkLabel1);
+            this.gboxLogin.Controls.Add(this.lblUsername);
+            this.gboxLogin.Controls.Add(this.btnLogin);
+            this.gboxLogin.Controls.Add(this.lblPassword);
+            this.gboxLogin.Controls.Add(this.txtPassword);
+            this.gboxLogin.Controls.Add(this.txtUsername);
+            this.gboxLogin.Location = new System.Drawing.Point(138, 12);
+            this.gboxLogin.Name = "gboxLogin";
+            this.gboxLogin.Size = new System.Drawing.Size(246, 123);
+            this.gboxLogin.TabIndex = 5;
+            this.gboxLogin.TabStop = false;
+            this.gboxLogin.Text = "Please Enter Credential\'s";
             // 
             // pbLogo
             // 
@@ -142,6 +132,16 @@ namespace GCR_Garage_Management
             this.btnExit.Text = "Exit Application";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(142, 102);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(84, 13);
+            this.linkLabel1.TabIndex = 5;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Reset Password";
             // 
             // statusStrip1
             // 
@@ -183,7 +183,7 @@ namespace GCR_Garage_Management
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.pbLogo);
-            this.Controls.Add(this.gbLogin);
+            this.Controls.Add(this.gboxLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -192,8 +192,8 @@ namespace GCR_Garage_Management
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.frm_Login_Load);
-            this.gbLogin.ResumeLayout(false);
-            this.gbLogin.PerformLayout();
+            this.gboxLogin.ResumeLayout(false);
+            this.gboxLogin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -211,7 +211,7 @@ namespace GCR_Garage_Management
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.GroupBox gbLogin;
+        private System.Windows.Forms.GroupBox gboxLogin;
         private System.Windows.Forms.PictureBox pbLogo;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button btnExit;
