@@ -62,9 +62,9 @@ namespace GCR_Garage_Management
                 da.Fill(dt);
                 if (dt.Rows.Count > 0)
                 {
-                    const string MBmessage = "You have logged in successfully";
-                    const string MBcaption = "Authentication Successful";
-                    MessageBox.Show(MBmessage, MBcaption);
+                    //const string MBmessage = "You have logged in successfully";
+                    //const string MBcaption = "Authentication Successful";
+                    //MessageBox.Show(MBmessage, MBcaption);
                     lblSQLConnection.Text = "SQL Connection Closed !";
                     LoggedInUser = userid;
                     this.Close();

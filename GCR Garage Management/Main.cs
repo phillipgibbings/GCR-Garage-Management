@@ -31,5 +31,11 @@ namespace GCR_Garage_Management
         {
             Application.Exit();
         }
+
+        private void createNewUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_NewUser frm = new frm_NewUser();
+            frm.ShowDialog();
+        }
     }
 }
