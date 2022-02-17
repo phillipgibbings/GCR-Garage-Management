@@ -21,3 +21,14 @@ C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\obj\
 C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.exe
 C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.pdb
 C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.frm_NewUser.resources
+C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Buffers.dll
+C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Memory.dll
+C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Buffers.xml
+C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Memory.xml
+C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.csproj.CopyComplete

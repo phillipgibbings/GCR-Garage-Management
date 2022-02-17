@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BCrypt.Net;
 
 namespace GCR_Garage_Management
 {
@@ -37,52 +38,86 @@ namespace GCR_Garage_Management
 
             if (Username == "")
             {
-                const string MBmessage = "Username cannot be blank. Please enter a username";
-                const string MBcaption = "Error";
+                string MBmessage = "Username cannot be blank. Please enter a username";
+                string MBcaption = "Error";
                 MessageBox.Show(MBmessage, MBcaption);
             }
             else if(Password == "")
             {
-                const string MBmessage = "Password cannot be blank. Please enter a password";
-                const string MBcaption = "Error";
+                string MBmessage = "Password cannot be blank. Please enter a password";
+                string MBcaption = "Error";
                 MessageBox.Show(MBmessage, MBcaption);
             }
             else if(cbAdmin.Checked == true)
             {
                 string isAdmin = "TRUE";
-                string query = "INSERT INTO Users (Username, Password, isAdmin) VALUES (@Username, @Password, @isAdmin)";
+                string query = "INSERT INTO Users (Username, HashedPassword, PasswordSalt, isAdmin)" + " VALUES (@Username, @HashedPassword, @PasswordSalt, @isAdmin)";
+                string passwordToHash = Password;
+                string passwordSalt = BCrypt.Net.BCrypt.GenerateSalt((16));
+                string hashToStoreInDatabase = BCrypt.Net.BCrypt.HashPassword(passwordToHash, passwordSalt);
 
-                SqlConnection con = new SqlConnection
+                try
                 {
-                    ConnectionString = @" Data Source=DESKTOP-RMH53MH\SQLEXPRESS;Initial Catalog=GCRMDB;Integrated Security=True"
-                };
-                con.Open();
+                    SqlConnection con = new SqlConnection
+                    {
+                        ConnectionString = @" Data Source=DESKTOP-RMH53MH\SQLEXPRESS;Initial Catalog=GCRMDB;Integrated Security=True"
+                    };
+                    con.Open();
 
-                SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@Username", txtUsername.Text);
-                cmd.Parameters.AddWithValue("@Password", txtPassword.Text);
-                cmd.Parameters.AddWithValue("@isAdmin", isAdmin);
-                cmd.ExecuteNonQuery(); 
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@Username", Username);
+                    cmd.Parameters.AddWithValue("@HashedPassword", hashToStoreInDatabase);
+                    cmd.Parameters.AddWithValue("@PasswordSalt", passwordSalt); 
+                    cmd.Parameters.AddWithValue("@isAdmin", isAdmin);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    string MBmessage = "Admin user " + Username + " added";
+                    string MBcaption = "User Created";
+                    MessageBox.Show(MBmessage, MBcaption);
+                    this.Close();
+                }
             }
             else if(cbAdmin.Checked == false)
             {
                 string isAdmin = "FALSE";
-                string query = "INSERT INTO Users (Username, Password, isAdmin) VALUES (@Username, @Password, @isAdmin)";
+                string query = "INSERT INTO Users (Username, HashedPassword, PasswordSalt, isAdmin)" + " VALUES (@Username, @HashedPassword, @PasswordSalt, @isAdmin)";
+                string passwordToHash = Password;
+                string passwordSalt = BCrypt.Net.BCrypt.GenerateSalt((16));
+                string hashToStoreInDatabase = BCrypt.Net.BCrypt.HashPassword(passwordToHash, passwordSalt);
 
-                SqlConnection con = new SqlConnection
+                try
                 {
-                    ConnectionString = @" Data Source=DESKTOP-RMH53MH\SQLEXPRESS;Initial Catalog=GCRMDB;Integrated Security=True"
-                };
-                con.Open();
+                    SqlConnection con = new SqlConnection
+                    {
+                        ConnectionString = @" Data Source=DESKTOP-RMH53MH\SQLEXPRESS;Initial Catalog=GCRMDB;Integrated Security=True"
+                    };
+                    con.Open();
 
-                SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@Username", txtUsername.Text);
-                cmd.Parameters.AddWithValue("@Password", txtPassword.Text);
-                cmd.Parameters.AddWithValue("@isAdmin", isAdmin);
-                cmd.ExecuteNonQuery();
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@Username", Username);
+                    cmd.Parameters.AddWithValue("@HashedPassword", hashToStoreInDatabase);
+                    cmd.Parameters.AddWithValue("@PasswordSalt", passwordSalt);
+                    cmd.Parameters.AddWithValue("@isAdmin", isAdmin);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    string MBmessage = "Basic user " + Username + " added";
+                    string MBcaption = "User Created";
+                    MessageBox.Show(MBmessage, MBcaption);
+                    this.Close();
+                }
             }
-
-            //this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

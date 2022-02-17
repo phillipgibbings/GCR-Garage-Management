@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GCR Garage Management", "GCR Garage Management\GCR Garage Management.csproj", "{C42CC69B-2EF3-430C-98C4-F56F17969C9B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CCB4CC37-4F5D-4CEE-B123-AED5E0272213}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

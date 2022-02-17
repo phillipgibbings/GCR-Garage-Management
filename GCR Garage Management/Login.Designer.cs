@@ -41,14 +41,11 @@ namespace GCR_Garage_Management
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.lblSQLConnection = new System.Windows.Forms.ToolStripStatusLabel();
-            this.gCRMDBDataSet = new GCR_Garage_Management.GCRMDBDataSet();
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.usersTableAdapter = new GCR_Garage_Management.GCRMDBDataSetTableAdapters.UsersTableAdapter();
+            this.lblDBhash = new System.Windows.Forms.Label();
+            this.lblHash = new System.Windows.Forms.Label();
             this.gbLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
-            this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gCRMDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -122,6 +119,7 @@ namespace GCR_Garage_Management
             this.linkLabel1.TabIndex = 5;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Reset Password";
+            this.linkLabel1.Visible = false;
             // 
             // pbLogo
             // 
@@ -145,8 +143,6 @@ namespace GCR_Garage_Management
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblSQLConnection});
             this.statusStrip1.Location = new System.Drawing.Point(0, 174);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(399, 22);
@@ -155,24 +151,21 @@ namespace GCR_Garage_Management
             this.statusStrip1.TabIndex = 7;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // lblSQLConnection
+            // lblDBhash
             // 
-            this.lblSQLConnection.Name = "lblSQLConnection";
-            this.lblSQLConnection.Size = new System.Drawing.Size(0, 17);
+            this.lblDBhash.AutoSize = true;
+            this.lblDBhash.Location = new System.Drawing.Point(13, 139);
+            this.lblDBhash.Name = "lblDBhash";
+            this.lblDBhash.Size = new System.Drawing.Size(0, 13);
+            this.lblDBhash.TabIndex = 8;
             // 
-            // gCRMDBDataSet
+            // lblHash
             // 
-            this.gCRMDBDataSet.DataSetName = "GCRMDBDataSet";
-            this.gCRMDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // usersBindingSource
-            // 
-            this.usersBindingSource.DataMember = "Users";
-            this.usersBindingSource.DataSource = this.gCRMDBDataSet;
-            // 
-            // usersTableAdapter
-            // 
-            this.usersTableAdapter.ClearBeforeFill = true;
+            this.lblHash.AutoSize = true;
+            this.lblHash.Location = new System.Drawing.Point(12, 156);
+            this.lblHash.Name = "lblHash";
+            this.lblHash.Size = new System.Drawing.Size(0, 13);
+            this.lblHash.TabIndex = 9;
             // 
             // frm_Login
             // 
@@ -180,6 +173,8 @@ namespace GCR_Garage_Management
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(399, 196);
             this.ControlBox = false;
+            this.Controls.Add(this.lblHash);
+            this.Controls.Add(this.lblDBhash);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.pbLogo);
@@ -191,13 +186,9 @@ namespace GCR_Garage_Management
             this.Name = "frm_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.frm_Login_Load);
             this.gbLogin.ResumeLayout(false);
             this.gbLogin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gCRMDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -216,10 +207,9 @@ namespace GCR_Garage_Management
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel lblSQLConnection;
-        private GCRMDBDataSet gCRMDBDataSet;
         private System.Windows.Forms.BindingSource usersBindingSource;
-        private GCRMDBDataSetTableAdapters.UsersTableAdapter usersTableAdapter;
+        private System.Windows.Forms.Label lblDBhash;
+        private System.Windows.Forms.Label lblHash;
     }
 }
 

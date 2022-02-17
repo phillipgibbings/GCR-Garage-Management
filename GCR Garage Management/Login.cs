@@ -18,7 +18,7 @@ namespace GCR_Garage_Management
 
         public frm_Login()
         {
-            
+
             SqlConnection con = new SqlConnection();
             con.ConnectionString = @"Data Source=DESKTOP-RMH53MH\SQLEXPRESS;Initial Catalog=GCRMDB;Integrated Security=True";
 
@@ -26,57 +26,38 @@ namespace GCR_Garage_Management
 
         }
 
-        private void frm_Login_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'gCRMDBDataSet.Users' table. You can move, or remove it, as needed.
-            this.usersTableAdapter.Fill(this.gCRMDBDataSet.Users);
-
-            if (con.State == ConnectionState.Open)
-            {
-                lblSQLConnection.Text = "SQL Connection Open !";
-                con.Close();
-            }
-            else if(con.State == ConnectionState.Closed)
-            {
-                lblSQLConnection.Text = "SQL Connection Closed !";
-            }
-
-        }
-
         public void btnLogin_Click(object sender, EventArgs e)
         {
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = @" Data Source=DESKTOP-RMH53MH\SQLEXPRESS;Initial Catalog=GCRMDB;Integrated Security=True";
+            try
+            {
+                string ConnectionString = @" Data Source=DESKTOP-RMH53MH\SQLEXPRESS;Initial Catalog=GCRMDB;Integrated Security=True";
+                string Username = txtUsername.Text;
+                SqlConnection con = new SqlConnection(ConnectionString);
                 con.Open();
-                lblSQLConnection.Text = "SQL Connection Open !";
-
-                string userid = txtUsername.Text;
-                string password = txtPassword.Text;
-
-                SqlCommand cmd = new SqlCommand("select Username,Password from Users where Username='" + txtUsername.Text
-                                                                        + "'and Password='" + txtPassword.Text + "'", con);
-                
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-
-                da.Fill(dt);
-                if (dt.Rows.Count > 0)
+                SqlCommand checkUser = new SqlCommand(@"SELECT HashedPassword from Users where Username = @Username", con);
+                checkUser.Parameters.Add(new SqlParameter("@Username", Username));
+                var hashedPassword = (string)checkUser.ExecuteScalar();
+;
+                if (BCrypt.Net.BCrypt.Verify(txtPassword.Text, hashedPassword) == true)
                 {
-                    //const string MBmessage = "You have logged in successfully";
-                    //const string MBcaption = "Authentication Successful";
+                    //string MBmessage = "You have logged in successfully";
+                    //string MBcaption = "Authentication Successful";
                     //MessageBox.Show(MBmessage, MBcaption);
-                    lblSQLConnection.Text = "SQL Connection Closed !";
-                    LoggedInUser = userid;
+                    LoggedInUser = Username;
+                    con.Close();
                     this.Close();
-            }
+                }
                 else
                 {
-                    const string MBmessage = "Incorrect Username and or Password";
-                    const string MBcaption = "Authentication Failed";
+                    string MBmessage = "Incorrect Username and or Password";
+                    string MBcaption = "Authentication Failed";
                     MessageBox.Show(MBmessage, MBcaption);
-                    lblSQLConnection.Text = "SQL Connection Closed !";
+                }
             }
-                con.Close();
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
