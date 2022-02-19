@@ -77,9 +77,9 @@ namespace GCR_Garage_Management
                 }
                 finally
                 {
-                    string MBmessage = "Admin user " + Username + " added";
+                    string MBmessage = "Added " + Username + " into the Database as Admin User";
                     string MBcaption = "User Created";
-                    MessageBox.Show(MBmessage, MBcaption);
+                    MessageBox.Show(MBmessage, MBcaption, MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     this.Close();
                 }
             }
@@ -112,9 +112,9 @@ namespace GCR_Garage_Management
                 }
                 finally
                 {
-                    string MBmessage = "Basic user " + Username + " added";
+                    string MBmessage = "Added " + Username + " into the Database as a Basic User";
                     string MBcaption = "User Created";
-                    MessageBox.Show(MBmessage, MBcaption);
+                    MessageBox.Show(MBmessage, MBcaption, MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     this.Close();
                 }
             }

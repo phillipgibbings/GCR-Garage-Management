@@ -1,7 +1,7 @@
 ﻿
 namespace GCR_Garage_Management
 {
-    partial class frm_Login
+    partial class Frm_Login
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace GCR_Garage_Management
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Login));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Login));
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();

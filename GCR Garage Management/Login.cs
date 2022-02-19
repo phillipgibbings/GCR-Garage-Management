@@ -11,53 +11,61 @@ using System.Data.SqlClient;
 
 namespace GCR_Garage_Management
 {
-    public partial class frm_Login : Form
+    public partial class Frm_Login : Form
     {
-        SqlConnection con = new SqlConnection();
         public static string LoggedInUser = "";
 
-        public frm_Login()
+        public Frm_Login()
         {
-
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = @"Data Source=DESKTOP-RMH53MH\SQLEXPRESS;Initial Catalog=GCRMDB;Integrated Security=True";
-
             InitializeComponent();
-
         }
 
         public void btnLogin_Click(object sender, EventArgs e)
         {
-            try
+            string Username = txtUsername.Text;
+            string Password = txtPassword.Text;
+
+            string ConnectionString = @" Data Source=DESKTOP-RMH53MH\SQLEXPRESS;Initial Catalog=GCRMDB;Integrated Security=True";
+
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            SqlCommand checkUser = new SqlCommand(@"SELECT Username from Users where Username = @Username", con);
+            checkUser.Parameters.Add(new SqlParameter("@Username", Username));
+            string UsernameExists = (string)checkUser.ExecuteScalar();
+
+            if (UsernameExists == Username)
             {
-                string ConnectionString = @" Data Source=DESKTOP-RMH53MH\SQLEXPRESS;Initial Catalog=GCRMDB;Integrated Security=True";
-                string Username = txtUsername.Text;
-                SqlConnection con = new SqlConnection(ConnectionString);
-                con.Open();
-                SqlCommand checkUser = new SqlCommand(@"SELECT HashedPassword from Users where Username = @Username", con);
-                checkUser.Parameters.Add(new SqlParameter("@Username", Username));
-                var hashedPassword = (string)checkUser.ExecuteScalar();
-;
-                if (BCrypt.Net.BCrypt.Verify(txtPassword.Text, hashedPassword) == true)
+                try
                 {
-                    //string MBmessage = "You have logged in successfully";
-                    //string MBcaption = "Authentication Successful";
-                    //MessageBox.Show(MBmessage, MBcaption);
-                    LoggedInUser = Username;
-                    con.Close();
-                    this.Close();
+                    SqlCommand verify = new SqlCommand(@"SELECT HashedPassword from Users where Username = @Username2", con);
+                    verify.Parameters.Add(new SqlParameter("@Username2", Username));
+                    var hashedPassword = (string)verify.ExecuteScalar();
+
+                    if (BCrypt.Net.BCrypt.Verify(Password, hashedPassword))
+                    {
+                        LoggedInUser = Username;
+                        con.Close();
+                        this.Close();
+                    }
+                    else
+                    {
+                        string MBmessage = "Incorrect Username and or Password";
+                        string MBcaption = "Authentication Failed";
+                        MessageBox.Show(MBmessage, MBcaption, MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    string MBmessage = "Incorrect Username and or Password";
-                    string MBcaption = "Authentication Failed";
-                    MessageBox.Show(MBmessage, MBcaption);
+                    MessageBox.Show(ex.Message);
                 }
             }
-            catch(Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                string MBmessage = "User doesnt exist!";
+                string MBcaption = "Authentication Failed";
+                MessageBox.Show(MBmessage, MBcaption, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             }
+            con.Close();
         }
 
         private void btnExit_Click(object sender, EventArgs e)

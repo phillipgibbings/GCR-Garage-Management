@@ -20,11 +20,11 @@ namespace GCR_Garage_Management
         private void frm_Main_Load(object sender, EventArgs e)
         {
             //Loads user login form to force user login
-            frm_Login frm = new frm_Login();
+            Frm_Login frm = new Frm_Login();
             frm.ShowDialog();
 
             //Shows current logged in user on Main form
-            lblLoggedUser.Text = frm_Login.LoggedInUser.ToString();
+            lblLoggedUser.Text = Frm_Login.LoggedInUser.ToString();
         }
 
         private void exitApplicationToolStripMenuItem_Click(object sender, EventArgs e)
