@@ -31,12 +31,12 @@ namespace GCR_Garage_Management
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Main));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.createNewJobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ammendExistingJobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsm_Jobs = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsm_CreateNewJob = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsm_AmmendExistingJob = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
-            this.deleteExistingJobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.administrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsb_DeleteExistingJob = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsm_Admin = new System.Windows.Forms.ToolStripMenuItem();
             this.softwareUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createNewUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,9 +48,11 @@ namespace GCR_Garage_Management
             this.updateSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblUserLoggedIn = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblLoggedUser = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblConStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabJobs = new System.Windows.Forms.TabControl();
+            this.logsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -58,8 +60,8 @@ namespace GCR_Garage_Management
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.administrationToolStripMenuItem,
+            this.tsm_Jobs,
+            this.tsm_Admin,
             this.aboutToolStripMenuItem,
             this.exitApplicationToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -68,34 +70,34 @@ namespace GCR_Garage_Management
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // toolStripMenuItem1
+            // tsm_Jobs
             // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.createNewJobToolStripMenuItem,
-            this.ammendExistingJobToolStripMenuItem,
-            this.deleteExistingJobToolStripMenuItem});
-            this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(127, 20);
-            this.toolStripMenuItem1.Text = "Job Management";
+            this.tsm_Jobs.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsm_CreateNewJob,
+            this.tsm_AmmendExistingJob,
+            this.tsb_DeleteExistingJob});
+            this.tsm_Jobs.Image = ((System.Drawing.Image)(resources.GetObject("tsm_Jobs.Image")));
+            this.tsm_Jobs.Name = "tsm_Jobs";
+            this.tsm_Jobs.Size = new System.Drawing.Size(127, 20);
+            this.tsm_Jobs.Text = "Job Management";
             // 
-            // createNewJobToolStripMenuItem
+            // tsm_CreateNewJob
             // 
-            this.createNewJobToolStripMenuItem.Enabled = false;
-            this.createNewJobToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("createNewJobToolStripMenuItem.Image")));
-            this.createNewJobToolStripMenuItem.Name = "createNewJobToolStripMenuItem";
-            this.createNewJobToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.createNewJobToolStripMenuItem.Text = "Create New Job";
+            this.tsm_CreateNewJob.Enabled = false;
+            this.tsm_CreateNewJob.Image = ((System.Drawing.Image)(resources.GetObject("tsm_CreateNewJob.Image")));
+            this.tsm_CreateNewJob.Name = "tsm_CreateNewJob";
+            this.tsm_CreateNewJob.Size = new System.Drawing.Size(189, 22);
+            this.tsm_CreateNewJob.Text = "Create New Job";
             // 
-            // ammendExistingJobToolStripMenuItem
+            // tsm_AmmendExistingJob
             // 
-            this.ammendExistingJobToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsm_AmmendExistingJob.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripTextBox1});
-            this.ammendExistingJobToolStripMenuItem.Enabled = false;
-            this.ammendExistingJobToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ammendExistingJobToolStripMenuItem.Image")));
-            this.ammendExistingJobToolStripMenuItem.Name = "ammendExistingJobToolStripMenuItem";
-            this.ammendExistingJobToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.ammendExistingJobToolStripMenuItem.Text = "Ammend Existing Job";
+            this.tsm_AmmendExistingJob.Enabled = false;
+            this.tsm_AmmendExistingJob.Image = ((System.Drawing.Image)(resources.GetObject("tsm_AmmendExistingJob.Image")));
+            this.tsm_AmmendExistingJob.Name = "tsm_AmmendExistingJob";
+            this.tsm_AmmendExistingJob.Size = new System.Drawing.Size(189, 22);
+            this.tsm_AmmendExistingJob.Text = "Ammend Existing Job";
             // 
             // toolStripTextBox1
             // 
@@ -103,24 +105,24 @@ namespace GCR_Garage_Management
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
             // 
-            // deleteExistingJobToolStripMenuItem
+            // tsb_DeleteExistingJob
             // 
-            this.deleteExistingJobToolStripMenuItem.Enabled = false;
-            this.deleteExistingJobToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteExistingJobToolStripMenuItem.Image")));
-            this.deleteExistingJobToolStripMenuItem.Name = "deleteExistingJobToolStripMenuItem";
-            this.deleteExistingJobToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.deleteExistingJobToolStripMenuItem.Text = "Delete Existing Job";
+            this.tsb_DeleteExistingJob.Enabled = false;
+            this.tsb_DeleteExistingJob.Image = ((System.Drawing.Image)(resources.GetObject("tsb_DeleteExistingJob.Image")));
+            this.tsb_DeleteExistingJob.Name = "tsb_DeleteExistingJob";
+            this.tsb_DeleteExistingJob.Size = new System.Drawing.Size(189, 22);
+            this.tsb_DeleteExistingJob.Text = "Delete Existing Job";
             // 
-            // administrationToolStripMenuItem
+            // tsm_Admin
             // 
-            this.administrationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsm_Admin.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.softwareUsersToolStripMenuItem,
             this.databaseToolStripMenuItem});
-            this.administrationToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("administrationToolStripMenuItem.Image")));
-            this.administrationToolStripMenuItem.Name = "administrationToolStripMenuItem";
-            this.administrationToolStripMenuItem.ShowShortcutKeys = false;
-            this.administrationToolStripMenuItem.Size = new System.Drawing.Size(126, 20);
-            this.administrationToolStripMenuItem.Text = "Software Settings";
+            this.tsm_Admin.Image = ((System.Drawing.Image)(resources.GetObject("tsm_Admin.Image")));
+            this.tsm_Admin.Name = "tsm_Admin";
+            this.tsm_Admin.ShowShortcutKeys = false;
+            this.tsm_Admin.Size = new System.Drawing.Size(126, 20);
+            this.tsm_Admin.Text = "Software Settings";
             // 
             // softwareUsersToolStripMenuItem
             // 
@@ -137,25 +139,25 @@ namespace GCR_Garage_Management
             // 
             this.createNewUserToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("createNewUserToolStripMenuItem.Image")));
             this.createNewUserToolStripMenuItem.Name = "createNewUserToolStripMenuItem";
-            this.createNewUserToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.createNewUserToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.createNewUserToolStripMenuItem.Text = "Create New User";
             this.createNewUserToolStripMenuItem.Click += new System.EventHandler(this.createNewUserToolStripMenuItem_Click);
             // 
             // deleteUserToolStripMenuItem
             // 
-            this.deleteUserToolStripMenuItem.Enabled = false;
             this.deleteUserToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteUserToolStripMenuItem.Image")));
             this.deleteUserToolStripMenuItem.Name = "deleteUserToolStripMenuItem";
-            this.deleteUserToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteUserToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.deleteUserToolStripMenuItem.Text = "Delete User";
+            this.deleteUserToolStripMenuItem.Click += new System.EventHandler(this.deleteUserToolStripMenuItem_Click);
             // 
             // modifyUserToolStripMenuItem
             // 
-            this.modifyUserToolStripMenuItem.Enabled = false;
             this.modifyUserToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("modifyUserToolStripMenuItem.Image")));
             this.modifyUserToolStripMenuItem.Name = "modifyUserToolStripMenuItem";
-            this.modifyUserToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modifyUserToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.modifyUserToolStripMenuItem.Text = "Modify User";
+            this.modifyUserToolStripMenuItem.Click += new System.EventHandler(this.modifyUserToolStripMenuItem_Click);
             // 
             // databaseToolStripMenuItem
             // 
@@ -178,6 +180,7 @@ namespace GCR_Garage_Management
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logsToolStripMenuItem,
             this.infoToolStripMenuItem,
             this.updateSoftwareToolStripMenuItem});
             this.aboutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aboutToolStripMenuItem.Image")));
@@ -212,25 +215,36 @@ namespace GCR_Garage_Management
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.lblLoggedUser});
+            this.lblUserLoggedIn,
+            this.lblLoggedUser,
+            this.lblConStatus});
             this.statusStrip1.Location = new System.Drawing.Point(0, 428);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+            this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolStripStatusLabel1
+            // lblUserLoggedIn
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(83, 17);
-            this.toolStripStatusLabel1.Text = "Logged in as : ";
+            this.lblUserLoggedIn.Image = ((System.Drawing.Image)(resources.GetObject("lblUserLoggedIn.Image")));
+            this.lblUserLoggedIn.Name = "lblUserLoggedIn";
+            this.lblUserLoggedIn.Size = new System.Drawing.Size(99, 17);
+            this.lblUserLoggedIn.Text = "Logged in as : ";
+            this.lblUserLoggedIn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblLoggedUser
             // 
             this.lblLoggedUser.Name = "lblLoggedUser";
             this.lblLoggedUser.Size = new System.Drawing.Size(0, 17);
+            this.lblLoggedUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblConStatus
+            // 
+            this.lblConStatus.Image = ((System.Drawing.Image)(resources.GetObject("lblConStatus.Image")));
+            this.lblConStatus.Name = "lblConStatus";
+            this.lblConStatus.Size = new System.Drawing.Size(16, 17);
+            this.lblConStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tabJobs
             // 
@@ -243,6 +257,14 @@ namespace GCR_Garage_Management
             this.tabJobs.SelectedIndex = 0;
             this.tabJobs.Size = new System.Drawing.Size(800, 398);
             this.tabJobs.TabIndex = 2;
+            // 
+            // logsToolStripMenuItem
+            // 
+            this.logsToolStripMenuItem.Enabled = false;
+            this.logsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("logsToolStripMenuItem.Image")));
+            this.logsToolStripMenuItem.Name = "logsToolStripMenuItem";
+            this.logsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logsToolStripMenuItem.Text = "Logs";
             // 
             // frm_Main
             // 
@@ -273,11 +295,10 @@ namespace GCR_Garage_Management
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem createNewJobToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ammendExistingJobToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteExistingJobToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem administrationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsm_Jobs;
+        private System.Windows.Forms.ToolStripMenuItem tsm_CreateNewJob;
+        private System.Windows.Forms.ToolStripMenuItem tsm_AmmendExistingJob;
+        private System.Windows.Forms.ToolStripMenuItem tsb_DeleteExistingJob;
         private System.Windows.Forms.ToolStripMenuItem softwareUsersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createNewUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteUserToolStripMenuItem;
@@ -285,13 +306,16 @@ namespace GCR_Garage_Management
         private System.Windows.Forms.ToolStripMenuItem databaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editDatabaseSettingsToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel lblUserLoggedIn;
         private System.Windows.Forms.ToolStripStatusLabel lblLoggedUser;
         private System.Windows.Forms.ToolStripMenuItem exitApplicationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem updateSoftwareToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.TabControl tabJobs;
+        private System.Windows.Forms.ToolStripStatusLabel lblConStatus;
+        public System.Windows.Forms.ToolStripMenuItem tsm_Admin;
+        public System.Windows.Forms.ToolStripMenuItem updateSoftwareToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logsToolStripMenuItem;
     }
 }

@@ -167,7 +167,7 @@ namespace GCR_Garage_Management
             this.lblHash.Size = new System.Drawing.Size(0, 13);
             this.lblHash.TabIndex = 9;
             // 
-            // frm_Login
+            // Frm_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -183,9 +183,10 @@ namespace GCR_Garage_Management
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frm_Login";
+            this.Name = "Frm_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Frm_Login_Load);
             this.gbLogin.ResumeLayout(false);
             this.gbLogin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();

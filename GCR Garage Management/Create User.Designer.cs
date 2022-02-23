@@ -1,7 +1,7 @@
 ﻿
 namespace GCR_Garage_Management
 {
-    partial class frm_NewUser
+    partial class Frm_NewUser
     {
         /// <summary>
         /// Required designer variable.
@@ -62,14 +62,14 @@ namespace GCR_Garage_Management
             this.gbNewUser.Controls.Add(this.label1);
             this.gbNewUser.Location = new System.Drawing.Point(12, 12);
             this.gbNewUser.Name = "gbNewUser";
-            this.gbNewUser.Size = new System.Drawing.Size(324, 149);
+            this.gbNewUser.Size = new System.Drawing.Size(325, 149);
             this.gbNewUser.TabIndex = 1;
             this.gbNewUser.TabStop = false;
             this.gbNewUser.Text = "New User Credentials";
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(9, 117);
+            this.btnCancel.Location = new System.Drawing.Point(139, 117);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 8;
@@ -132,17 +132,18 @@ namespace GCR_Garage_Management
             this.txtUsername.Size = new System.Drawing.Size(245, 20);
             this.txtUsername.TabIndex = 1;
             // 
-            // frm_NewUser
+            // Frm_NewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(347, 171);
+            this.ClientSize = new System.Drawing.Size(349, 171);
             this.ControlBox = false;
             this.Controls.Add(this.gbNewUser);
-            this.Name = "frm_NewUser";
+            this.Name = "Frm_NewUser";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Create User";
+            this.Load += new System.EventHandler(this.Frm_NewUser_Load);
             this.gbNewUser.ResumeLayout(false);
             this.gbNewUser.PerformLayout();
             this.ResumeLayout(false);

@@ -68,6 +68,18 @@
     <Compile Include="Create User.Designer.cs">
       <DependentUpon>Create User.cs</DependentUpon>
     </Compile>
+    <Compile Include="Delete User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Delete User.Designer.cs">
+      <DependentUpon>Delete User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Update User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update User.Designer.cs">
+      <DependentUpon>Update User.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +94,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Delete User.resx">
+      <DependentUpon>Delete User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Update User.resx">
+      <DependentUpon>Update User.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

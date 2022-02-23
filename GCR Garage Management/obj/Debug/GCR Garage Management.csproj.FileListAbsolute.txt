@@ -32,3 +32,5 @@ C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\bin\
 C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.csproj.CopyComplete
+C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Frm_DeleteUser.resources
+C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Frm_UpdateUser.resources

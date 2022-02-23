@@ -12,9 +12,9 @@ using BCrypt.Net;
 
 namespace GCR_Garage_Management
 {
-    public partial class frm_NewUser : Form
+    public partial class Frm_NewUser : Form
     {
-        public frm_NewUser()
+        public Frm_NewUser()
         {
             InitializeComponent();
         }
@@ -35,19 +35,33 @@ namespace GCR_Garage_Management
         {
             string Username = txtUsername.Text;
             string Password = txtPassword.Text;
+            string ConnectionString = @" Data Source=DESKTOP-RMH53MH\SQLEXPRESS;Initial Catalog=GCRMDB;Integrated Security=True";
+
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+
+            SqlCommand checkUser = new SqlCommand(@"SELECT Username from Users where Username = @Username", con);
+            checkUser.Parameters.Add(new SqlParameter("@Username", Username));
+            string UsernameExists = (string)checkUser.ExecuteScalar();
 
             if (Username == "")
             {
                 string MBmessage = "Username cannot be blank. Please enter a username";
                 string MBcaption = "Error";
-                MessageBox.Show(MBmessage, MBcaption);
+                MessageBox.Show(MBmessage, MBcaption, MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
             }
             else if(Password == "")
             {
                 string MBmessage = "Password cannot be blank. Please enter a password";
                 string MBcaption = "Error";
-                MessageBox.Show(MBmessage, MBcaption);
+                MessageBox.Show(MBmessage, MBcaption, MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
             }
+            else if(UsernameExists == Username)
+                {
+                string MBmessage = "User " + Username + " already exists \nPlease choose another Username";
+                string MBcaption = "Error";
+                MessageBox.Show(MBmessage, MBcaption, MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                }
             else if(cbAdmin.Checked == true)
             {
                 string isAdmin = "TRUE";
@@ -58,11 +72,7 @@ namespace GCR_Garage_Management
 
                 try
                 {
-                    SqlConnection con = new SqlConnection
-                    {
-                        ConnectionString = @" Data Source=DESKTOP-RMH53MH\SQLEXPRESS;Initial Catalog=GCRMDB;Integrated Security=True"
-                    };
-                    con.Open();
+                    //con.Open();
 
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.AddWithValue("@Username", Username);
@@ -80,7 +90,8 @@ namespace GCR_Garage_Management
                     string MBmessage = "Added " + Username + " into the Database as Admin User";
                     string MBcaption = "User Created";
                     MessageBox.Show(MBmessage, MBcaption, MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-                    this.Close();
+                    txtUsername.Clear();
+                    txtPassword.Clear();
                 }
             }
             else if(cbAdmin.Checked == false)
@@ -93,11 +104,7 @@ namespace GCR_Garage_Management
 
                 try
                 {
-                    SqlConnection con = new SqlConnection
-                    {
-                        ConnectionString = @" Data Source=DESKTOP-RMH53MH\SQLEXPRESS;Initial Catalog=GCRMDB;Integrated Security=True"
-                    };
-                    con.Open();
+                    //con.Open();
 
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.AddWithValue("@Username", Username);
@@ -115,14 +122,21 @@ namespace GCR_Garage_Management
                     string MBmessage = "Added " + Username + " into the Database as a Basic User";
                     string MBcaption = "User Created";
                     MessageBox.Show(MBmessage, MBcaption, MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-                    this.Close();
+                    txtUsername.Clear();
+                    txtPassword.Clear();
                 }
+                con.Close();
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Frm_NewUser_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

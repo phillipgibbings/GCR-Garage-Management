@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace GCR_Garage_Management
 {
@@ -25,6 +26,22 @@ namespace GCR_Garage_Management
 
             //Shows current logged in user on Main form
             lblLoggedUser.Text = Frm_Login.LoggedInUser.ToString();
+
+            //Check Database connection status and shows if open/closed
+
+            string ConnectionString = @" Data Source=DESKTOP-RMH53MH\SQLEXPRESS;Initial Catalog=GCRMDB;Integrated Security=True";
+
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    lblConStatus.Text = "Server Connection Open";
+                }
+                else if(con.State == ConnectionState.Closed)
+                {
+                    lblConStatus.Text = "Server Connection Closed";
+                }
+            }
         }
 
         private void exitApplicationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -34,8 +51,20 @@ namespace GCR_Garage_Management
 
         private void createNewUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frm_NewUser frm = new frm_NewUser();
+            Frm_NewUser frm = new Frm_NewUser();
             frm.ShowDialog();
+        }
+
+        private void deleteUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_DeleteUser frm = new Frm_DeleteUser();
+            frm.ShowDialog();
+        }
+
+        private void modifyUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_UpdateUser frm = new Frm_UpdateUser();
+                frm.ShowDialog();
         }
     }
 }

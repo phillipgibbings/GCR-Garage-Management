@@ -37,6 +37,7 @@ namespace GCR_Garage_Management
             {
                 try
                 {
+
                     SqlCommand verify = new SqlCommand(@"SELECT HashedPassword from Users where Username = @Username2", con);
                     verify.Parameters.Add(new SqlParameter("@Username2", Username));
                     var hashedPassword = (string)verify.ExecuteScalar();
@@ -52,12 +53,14 @@ namespace GCR_Garage_Management
                         string MBmessage = "Incorrect Username and or Password";
                         string MBcaption = "Authentication Failed";
                         MessageBox.Show(MBmessage, MBcaption, MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                        con.Close();
                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
+ 
             }
             else
             {
@@ -73,5 +76,9 @@ namespace GCR_Garage_Management
             Application.Exit();
         }
 
+        private void Frm_Login_Load(object sender, EventArgs e)
+        {
+            this.ActiveControl = txtUsername;
+        }
     }
 }
