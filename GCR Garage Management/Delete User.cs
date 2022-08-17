@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace GCR_Garage_Management
 {
@@ -27,13 +28,15 @@ namespace GCR_Garage_Management
         {
             try
             {
-                string ConnectionString = @" Data Source=DESKTOP-RMH53MH\SQLEXPRESS;Initial Catalog=GCRMDB;Integrated Security=True";
+                string ConnectionString = ConfigurationManager.ConnectionStrings["SQLEXPRESS.ConnectionString"].ConnectionString;
 
                 SqlConnection con = new SqlConnection(ConnectionString);
-                con.Close();
                 con.Open();
-                SqlCommand cmd = new SqlCommand("Select Username from Users", con);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand("Select Username from Users", con)
+                {
+                    CommandType = CommandType.Text
+                };
+
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
@@ -51,7 +54,7 @@ namespace GCR_Garage_Management
 
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
-            string ConnectionString = @" Data Source=DESKTOP-RMH53MH\SQLEXPRESS;Initial Catalog=GCRMDB;Integrated Security=True";
+            string ConnectionString = ConfigurationManager.ConnectionStrings["SQLEXPRESS.ConnectionString"].ConnectionString;
             string Username = cbUsername.Text;
 
             SqlConnection con = new SqlConnection(ConnectionString);
@@ -60,16 +63,23 @@ namespace GCR_Garage_Management
 
             try
             {
+                //Message Box Strings User Delete Confirmation
+                string MBMessage = "This cannot be undone\n\nAre you sure?";
+                string MBTitle = "Confirmation!";
 
-                if (MessageBox.Show("This cannot be undone\n\nAre you sure?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageboxValidation ? MessageBoxDefaultButton.Button2 : MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                if (MessageBox.Show(MBMessage, MBTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageboxValidation ? MessageBoxDefaultButton.Button2 : MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                 {
                     try
                     {
+                        //Message Box Strings Deleted confirmed
+                        string MBMessage1 = "User" + cbUsername.Text + " Deleted!";
+                        string MBTitle1 = "Confirmation";
+
                         con.Open();
                         SqlCommand userDelete = new SqlCommand("DELETE FROM Users WHERE Username=@Username", con);
                         userDelete.Parameters.AddWithValue("@Username", Username);
                         userDelete.ExecuteNonQuery();
-                        MessageBox.Show("User " + cbUsername.Text + " Deleted!", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        MessageBox.Show(MBMessage1, MBTitle1, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         con.Close();
                     }
                     catch(Exception ex)
@@ -96,7 +106,11 @@ namespace GCR_Garage_Management
                 }
                 else
                 {
-                    MessageBox.Show("User not deleted!", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    //Message Box String User not deleted
+                    string MBMessage2 = "User not deleted!";
+                    string MBTitle2 = "Confirmation";
+
+                    MessageBox.Show(MBMessage2, MBTitle2, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
             catch (Exception ex)

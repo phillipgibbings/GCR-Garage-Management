@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace GCR_Garage_Management
 {
@@ -20,26 +21,87 @@ namespace GCR_Garage_Management
 
         private void frm_Main_Load(object sender, EventArgs e)
         {
+            //New Main Check for FirstRun if true run First run form if false run Login form
+
+            string Firstrun = System.Configuration.ConfigurationManager.AppSettings["FirstRun"];
+
+            if (Firstrun == "true")
+            {
+                Frm_FirstRun FirstRun = new Frm_FirstRun();
+                FirstRun.ShowDialog();
+            }
+            else
+            {
+                Frm_Login Login = new Frm_Login();
+                Login.ShowDialog();
+            }
+
             //Loads user login form to force user login
-            Frm_Login frm = new Frm_Login();
-            frm.ShowDialog();
+            //Frm_Login frm = new Frm_Login(); //Login Form
 
-            //Shows current logged in user on Main form
-            lblLoggedUser.Text = Frm_Login.LoggedInUser.ToString();
+            /*
+                Edit to test individual forms without Logging in
+                Comment out Frm_Login, Uncomment the required form to test
+                Main Form will not run with Logged User as Blank
+            */
 
-            //Check Database connection status and shows if open/closed
+            //Frm_FirstRun frm = new Frm_FirstRun(); //First Run Form
+            //Frm_CreateDatabase frm = new Frm_CreateDatabase(); //Create Database Form
+            //Frm_NewUser frm = new Frm_NewUser(); // Create User Form
+            //Frm_DeleteUser frm = new Frm_DeleteUser(); // Delete User Form
+            //Frm_UpdateUser frm = new Frm_UpdateUser(); // Update User Form
 
-            string ConnectionString = @" Data Source=DESKTOP-RMH53MH\SQLEXPRESS;Initial Catalog=GCRMDB;Integrated Security=True";
+            //frm.ShowDialog();
 
+            //Shows user logged in after Authentication
+            string LoggedInUser = Frm_Login.LoggedInUser.ToString();
+            lblLoggedUser.Text = LoggedInUser;
+
+            string ConnectionString = ConfigurationManager.ConnectionStrings["SQLEXPRESS.ConnectionString"].ConnectionString;
+           
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
-                if (con.State == ConnectionState.Open)
+                if (LoggedInUser == "")
                 {
-                    lblConStatus.Text = "Server Connection Open";
+                    string LoggedUserErrorMBMessage = "An unauthorised attempt to bypass authentication has occured\nThis applicaion will now close, Please login correctly!!";
+                    string LoggedUserErrorMBTitle = "Unauthorsied Access";
+
+                    MessageBox.Show(LoggedUserErrorMBMessage, LoggedUserErrorMBTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Application.Exit();
                 }
-                else if(con.State == ConnectionState.Closed)
+                else
                 {
-                    lblConStatus.Text = "Server Connection Closed";
+                    //Check for Admin rights and enable/disable controls accordingly
+                    try
+                    {
+                        con.Open();
+                        SqlCommand checkUser = new SqlCommand(@"SELECT isAdmin from Users where Username = @Username", con);
+                        checkUser.Parameters.Add(new SqlParameter("@Username", LoggedInUser));
+                        bool isAdmin = (bool)checkUser.ExecuteScalar();
+                        con.Close();
+
+                        if (isAdmin == true)
+                        {
+                            tsm_Admin.Enabled = true;
+                            tsm_UpdateSoftware.Enabled = true;
+                            tsm_Logs.Enabled = true;
+
+                        }
+                        else
+                        {
+                            tsm_Admin.Enabled = false;
+                            tsm_UpdateSoftware.Enabled = false;
+                            tsm_Logs.Enabled = false;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        con.Close();
+                    }
                 }
             }
         }
@@ -65,6 +127,16 @@ namespace GCR_Garage_Management
         {
             Frm_UpdateUser frm = new Frm_UpdateUser();
                 frm.ShowDialog();
+        }
+
+        private void tsm_Search_MouseLeave(object sender, EventArgs e)
+        {
+            tsm_Search.Text = "Vehicle Reg";
+        }
+
+        private void tsm_Search_MouseEnter(object sender, EventArgs e)
+        {
+            tsm_Search.Text = "";
         }
     }
 }

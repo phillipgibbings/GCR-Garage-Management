@@ -12,7 +12,6 @@ C:\Users\phill\source\repos\GCR Garage Management\GCR Garage Management\obj\Debu
 C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\bin\Debug\GCR Garage Management.exe.config
 C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\bin\Debug\GCR Garage Management.exe
 C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\bin\Debug\GCR Garage Management.pdb
-C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.csproj.AssemblyReference.cache
 C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.frm_Login.resources
 C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.frm_Main.resources
 C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Properties.Resources.resources
@@ -34,3 +33,60 @@ C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\bin\
 C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.csproj.CopyComplete
 C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Frm_DeleteUser.resources
 C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Frm_UpdateUser.resources
+C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Frm_FirstRun.resources
+C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Frm_CreateDatabase.resources
+C:\Users\phill\Documents\GitHub\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.csproj.AssemblyReference.cache
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\GCR Garage Management.exe.config
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\GCR Garage Management.exe
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\GCR Garage Management.pdb
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\BCrypt.Net-Next.dll
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Buffers.dll
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Memory.dll
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Numerics.Vectors.dll
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\BCrypt.Net-Next.xml
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Buffers.xml
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Memory.xml
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Numerics.Vectors.xml
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.csproj.AssemblyReference.cache
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Frm_DeleteUser.resources
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Frm_FirstRun.resources
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Frm_CreateDatabase.resources
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Frm_UpdateUser.resources
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Frm_Login.resources
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.frm_Main.resources
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Frm_NewUser.resources
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Properties.Resources.resources
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.csproj.GenerateResource.cache
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.csproj.CoreCompileInputs.cache
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.csproj.CopyComplete
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.exe
+E:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.pdb
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\GCR Garage Management.exe.config
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\GCR Garage Management.exe
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\GCR Garage Management.pdb
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\BCrypt.Net-Next.dll
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Buffers.dll
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Memory.dll
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Numerics.Vectors.dll
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\BCrypt.Net-Next.xml
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Buffers.xml
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Memory.xml
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Numerics.Vectors.xml
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.csproj.AssemblyReference.cache
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Frm_DeleteUser.resources
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Frm_FirstRun.resources
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Frm_CreateDatabase.resources
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Frm_UpdateUser.resources
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Frm_Login.resources
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.frm_Main.resources
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Frm_NewUser.resources
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Properties.Resources.resources
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.csproj.GenerateResource.cache
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.csproj.CoreCompileInputs.cache
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.csproj.CopyComplete
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.exe
+D:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.pdb

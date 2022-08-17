@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -40,6 +55,7 @@
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
@@ -74,6 +90,23 @@
     <Compile Include="Delete User.Designer.cs">
       <DependentUpon>Delete User.cs</DependentUpon>
     </Compile>
+    <Compile Include="First Run.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="First Run.Designer.cs">
+      <DependentUpon>First Run.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateDatabase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateDatabase.Designer.cs">
+      <DependentUpon>CreateDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GCRGARAGEDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GCRGARAGEDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Update User.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +130,12 @@
     <EmbeddedResource Include="Delete User.resx">
       <DependentUpon>Delete User.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="First Run.resx">
+      <DependentUpon>First Run.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateDatabase.resx">
+      <DependentUpon>CreateDatabase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Update User.resx">
       <DependentUpon>Update User.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,6 +157,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="GCRGARAGEDataSet.xsc">
+      <DependentUpon>GCRGARAGEDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GCRGARAGEDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GCRGARAGEDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GCRGARAGEDataSet.xss">
+      <DependentUpon>GCRGARAGEDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -133,7 +183,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Classes\" />
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

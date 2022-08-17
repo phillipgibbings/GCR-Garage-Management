@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Configuration;
 
 namespace GCR_Garage_Management
 {
@@ -27,13 +23,16 @@ namespace GCR_Garage_Management
         {
             try
             {
-                string ConnectionString = @" Data Source=DESKTOP-RMH53MH\SQLEXPRESS;Initial Catalog=GCRMDB;Integrated Security=True";
+                string ConnectionString = ConfigurationManager.ConnectionStrings["SQLEXPRESS.ConnectionString"].ConnectionString;
 
                 SqlConnection con = new SqlConnection(ConnectionString);
-                con.Close();
                 con.Open();
-                SqlCommand cmd = new SqlCommand("Select Username from Users", con);
-                cmd.CommandType = CommandType.Text;
+
+                SqlCommand cmd = new SqlCommand("Select Username from Users", con)
+                {
+                    CommandType = CommandType.Text
+                };
+
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
@@ -79,7 +78,7 @@ namespace GCR_Garage_Management
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            string ConnectionString = @" Data Source=DESKTOP-RMH53MH\SQLEXPRESS;Initial Catalog=GCRMDB;Integrated Security=True";
+            string ConnectionString = ConfigurationManager.ConnectionStrings["SQLEXPRESS.ConnectionString"].ConnectionString;
             string Username = cbUsername.Text;
 
             SqlConnection con = new SqlConnection(ConnectionString);
@@ -90,8 +89,11 @@ namespace GCR_Garage_Management
 
             try
             {
+                //Message box strings Password Confirmation
+                string MBMessage = "A password change cannot be undone!\n\nAre you sure you want to update it?";
+                string MBTitle = "Confirmation";
 
-                if (MessageBox.Show("Passwordchange cannot be undone!\n\nAre you sure you want to update it?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageboxValidation ? MessageBoxDefaultButton.Button2 : MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                if (MessageBox.Show(MBMessage, MBTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageboxValidation ? MessageBoxDefaultButton.Button2 : MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                 {
                     try
                     {
@@ -101,10 +103,17 @@ namespace GCR_Garage_Management
                         string passwordSalt = BCrypt.Net.BCrypt.GenerateSalt((16));
                         string hashToStoreInDatabase = BCrypt.Net.BCrypt.HashPassword(passwordToHash, passwordSalt);
 
-                        SqlCommand userUpdate = new SqlCommand(@"UPDATE Users set HashedPassword ='" + hashToStoreInDatabase +"', PasswordSalt ='"+ passwordSalt + "' WHERE Username=@Username", con);
+                        string MBMessage1 = "Password for " + cbUsername.Text + " Updated!";
+                        string MBTitle1 = "Confirmation";
+                        
+                        SqlCommand userUpdate = new SqlCommand(@"UPDATE Users set HashedPassword =@HashedPassword, PasswordSalt =@PasswordSalt WHERE Username =@Username", con);
                         userUpdate.Parameters.AddWithValue("@Username", Username);
+                        userUpdate.Parameters.AddWithValue("@HashedPassword", hashToStoreInDatabase);
+                        userUpdate.Parameters.AddWithValue("@PasswordSalt", passwordSalt);
                         userUpdate.ExecuteNonQuery();
-                        MessageBox.Show("Password for " + cbUsername.Text + " Updated!", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                        MessageBox.Show(MBMessage1, MBTitle1, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        this.Close();
                     }
                     catch (Exception ex)
                     {
@@ -112,13 +121,18 @@ namespace GCR_Garage_Management
                     }
                     finally
                     {
+                        cbUsername.Text = "";
                         con.Close();
                     }
 
                 }
                 else
                 {
-                    MessageBox.Show("Password not updated!", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    //Message box Strings Password Not Updated
+                    string MBMessage2 = "Password not updated!";
+                    string MBTitle2 = "Confirmation";
+
+                    MessageBox.Show(MBMessage2, MBTitle2, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
             catch (Exception ex)

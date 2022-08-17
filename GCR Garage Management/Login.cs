@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace GCR_Garage_Management
 {
@@ -25,7 +26,7 @@ namespace GCR_Garage_Management
             string Username = txtUsername.Text;
             string Password = txtPassword.Text;
 
-            string ConnectionString = @" Data Source=DESKTOP-RMH53MH\SQLEXPRESS;Initial Catalog=GCRMDB;Integrated Security=True";
+            string ConnectionString = ConfigurationManager.ConnectionStrings["SQLEXPRESS.ConnectionString"].ConnectionString;
 
             SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
@@ -38,8 +39,8 @@ namespace GCR_Garage_Management
                 try
                 {
 
-                    SqlCommand verify = new SqlCommand(@"SELECT HashedPassword from Users where Username = @Username2", con);
-                    verify.Parameters.Add(new SqlParameter("@Username2", Username));
+                    SqlCommand verify = new SqlCommand(@"SELECT HashedPassword from Users where Username = @Username1", con);
+                    verify.Parameters.Add(new SqlParameter("@Username1", Username));
                     var hashedPassword = (string)verify.ExecuteScalar();
 
                     if (BCrypt.Net.BCrypt.Verify(Password, hashedPassword))
@@ -50,7 +51,7 @@ namespace GCR_Garage_Management
                     }
                     else
                     {
-                        string MBmessage = "Incorrect Username and or Password";
+                        string MBmessage = "Incorrect password entered\n\nPasswords are case sensitive\nPlease check and try again.";
                         string MBcaption = "Authentication Failed";
                         MessageBox.Show(MBmessage, MBcaption, MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                         con.Close();
@@ -64,8 +65,8 @@ namespace GCR_Garage_Management
             }
             else
             {
-                string MBmessage = "User doesnt exist!";
-                string MBcaption = "Authentication Failed";
+                string MBmessage = "The username entered is not valid\n\nPlease try again.";
+                string MBcaption = "Username Incorrect";
                 MessageBox.Show(MBmessage, MBcaption, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             }
             con.Close();

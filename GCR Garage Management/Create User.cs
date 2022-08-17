@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BCrypt.Net;
+using System.Configuration;
 
 namespace GCR_Garage_Management
 {
@@ -35,7 +36,7 @@ namespace GCR_Garage_Management
         {
             string Username = txtUsername.Text;
             string Password = txtPassword.Text;
-            string ConnectionString = @" Data Source=DESKTOP-RMH53MH\SQLEXPRESS;Initial Catalog=GCRMDB;Integrated Security=True";
+            string ConnectionString = ConfigurationManager.ConnectionStrings["SQLEXPRESS.ConnectionString"].ConnectionString;
 
             SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
@@ -72,8 +73,6 @@ namespace GCR_Garage_Management
 
                 try
                 {
-                    //con.Open();
-
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.AddWithValue("@Username", Username);
                     cmd.Parameters.AddWithValue("@HashedPassword", hashToStoreInDatabase);

@@ -21,7 +21,7 @@ namespace Hashing
                     con.Open()
     
                 SqlCommand cmd = con.CreateCommand(query, con)
-                    cmd.CommandText = "INSERT INTO Users (Username, Password, isAdmin)" + " VALUES (@Username, @Password, @isAdmin)";
+                cmd.CommandText = "INSERT INTO Users (Username, Password, isAdmin)" + " VALUES (@Username, @Password, @isAdmin)";
                 cmd.Parameters.AddWithValue("@Username", txtUsername.Text);
                 cmd.Parameters.AddWithValue("@Password", txtPassword.Text);
                 cmd.Parameters.AddWithValue("@isAdmin", isAdmin);

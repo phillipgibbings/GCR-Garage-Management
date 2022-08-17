@@ -26,7 +26,7 @@ namespace GCR_Garage_Management.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-RMH53MH\\SQLEXPRESS;Initial Catalog=GCRMDB;User ID=sa;Password" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-CONHMGN\\SQLEXPRESS;Initial Catalog=GCRMDB;User ID=sa;Password" +
             "=1d3m0io48Z!!")]
         public string GCRMDBConnectionString {
             get {
