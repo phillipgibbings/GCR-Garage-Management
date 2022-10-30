@@ -84,6 +84,12 @@
     <Compile Include="Create User.Designer.cs">
       <DependentUpon>Create User.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database Management.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Database Management.Designer.cs">
+      <DependentUpon>Database Management.cs</DependentUpon>
+    </Compile>
     <Compile Include="Delete User.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,12 @@
     </Compile>
     <Compile Include="CreateDatabase.Designer.cs">
       <DependentUpon>CreateDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
     </Compile>
     <Compile Include="GCRGARAGEDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -127,6 +139,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Database Management.resx">
+      <DependentUpon>Database Management.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Delete User.resx">
       <DependentUpon>Delete User.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreateDatabase.resx">
       <DependentUpon>CreateDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Update User.resx">
       <DependentUpon>Update User.cs</DependentUpon>
@@ -156,6 +174,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="GCRGARAGEDataSet.xsc">
       <DependentUpon>GCRGARAGEDataSet.xsd</DependentUpon>
@@ -196,6 +215,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Icon\PNG\Folder.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

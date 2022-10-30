@@ -1,0 +1,20 @@
+[Revision 0.0.0.7]
+Added Information page, added Database Management Page with Database Backup
+
+[Revision 0.0.0.6]
+Added an Initial Configuration (First Run), This sets up the basic install to get the application working (On going changes with Application development)
+
+[Revision 0.0.0.5]
+Delete User Added, Amend Users Added with Password updateing
+
+[Revision 0.0.0.4]
+New GUI for Logon, Bcrypt functions to SALT/HASH added for User Creation, Bcrypt verification added to Logon
+
+[Revision 0.0.0.3]
+Logon/Add User added (Plain Text)
+
+[Revision 0.0.0.2]
+Create User Added (Plain Text)
+
+[Revision 0.0.0.1]
+Base layout for GUI

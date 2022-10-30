@@ -37,18 +37,6 @@ namespace GCR_Garage_Management
 
         }
 
-        private void cb_InitialDBShowpassword_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cb_InitialDBShowpassword.Checked)
-            {
-                txt_InitialDBPassword.UseSystemPasswordChar = false;
-            }
-            else
-            {
-                txt_InitialDBPassword.UseSystemPasswordChar = true;
-            }
-        }
-
         private void cb_DBServer_SelectedIndexChanged(object sender, EventArgs e)
         {
             cb_Database.Enabled = true;
@@ -259,6 +247,7 @@ namespace GCR_Garage_Management
             {
                 try
                 {
+                    // Write  the connection string to App.config
                     var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                     var connectionStringsSection = (ConnectionStringsSection)config.GetSection("connectionStrings");
                     var connectionString = DBFinalConnection;
@@ -269,32 +258,63 @@ namespace GCR_Garage_Management
                     MessageBox.Show("Connection Updated", "Updated");
 
                     this.btnExit.Location = new Point(341, 414);
-                    this.btnExit.Enabled = true;
                     this.gb_CreateDatabaseTables.Visible = true;
                     this.gb_CreateDatabaseTables.Enabled = true;
                     this.Size = new Size(492, 480);
-
                 }
 
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Error");
                 }
-            }
-
-            
+            }  
         }
 
         private void btnCreateTables_Click(object sender, EventArgs e)
         {
-            this.btnExit.Location = new Point(341, 527);
-            this.gb_DefaultAdmin.Visible = true;
-            this.gb_DefaultAdmin.Enabled = true;
-            this.Size = new Size(492, 600);
+            string ConnectionString = ConfigurationManager.ConnectionStrings["SQLEXPRESS.ConnectionString"].ConnectionString;
+
+            //Add Tabels with columns to Database
+            using (var con = new SqlConnection(ConnectionString))
+            {
+                if (con.State == ConnectionState.Closed)
+                    try
+                    {
+                        con.Open();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error");
+                    }
+
+                if (con.State == ConnectionState.Open)
+                {
+                    try
+                    {
+                        string strDBCreateUser = "CREATE TABLE Users (Username nvarchar(50) primary key, HashedPassword nvarchar(max), PasswordSalt nvarchar(50), isAdmin BIT )";
+                        var cmdCreateUser = con.CreateCommand();
+                        cmdCreateUser.CommandText = strDBCreateUser;
+                        cmdCreateUser.ExecuteNonQuery();
+
+                        MessageBox.Show("1 Table Added", "Successful", MessageBoxButtons.OK);
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                this.btnExit.Location = new Point(341, 527);
+                this.gb_DefaultAdmin.Visible = true;
+                this.gb_DefaultAdmin.Enabled = true;
+                this.Size = new Size(492, 600);
+            }
         }
 
         private void btnDAAdd_Click(object sender, EventArgs e)
         {
+            //Add the default Admin User
             string Password = txtDAPassword.Text;
             string Username = txtDAUsername.Text;
             string isAdmin = "TRUE";
@@ -310,8 +330,6 @@ namespace GCR_Garage_Management
 
             try
             {
-
-
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Username", Username);
                 cmd.Parameters.AddWithValue("@HashedPassword", hashToStoreInDatabase);
@@ -325,19 +343,18 @@ namespace GCR_Garage_Management
             }
             finally
             {
-                string MBmessage = "Default admin added into the Database\nPasswords for these accounts are not recoverable!!\n\nplease make a note and keep them in a safe location";
+                string MBmessage = "Default admin added \nPasswords for these accounts are not recoverable!!\n\nPlease make a note and keep them in a safe location";
                 string MBcaption = "Default Admin Created";
                 MessageBox.Show(MBmessage, MBcaption, MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 txtDAUsername.Clear();
                 txtDAPassword.Clear();
-
+                this.btnExit.Enabled = true;
             }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            //Update App.Settings with New Values Defined by Installer
-
+            //Update App.Settings with the default  settings as definded during initial configuration
             var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             config.AppSettings.Settings["FirstRun"].Value = false.ToString();
             config.AppSettings.Settings["Username"].Value = DBusername;
@@ -348,6 +365,18 @@ namespace GCR_Garage_Management
             ConfigurationManager.RefreshSection("appSettings");
             MessageBox.Show("The application will now close\nPlease reload the application with the updated configuration", "Configuration Updated");
             Application.Exit();
+        }
+
+        private void cb_InitialDBShowpassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cb_InitialDBShowpassword.Checked)
+            {
+                txt_InitialDBPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txt_InitialDBPassword.UseSystemPasswordChar = true;
+            }
         }
 
         private void cbDAShowPassword_CheckedChanged(object sender, EventArgs e)

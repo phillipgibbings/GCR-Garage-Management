@@ -23,9 +23,9 @@ namespace GCR_Garage_Management
         {
             //New Main Check for FirstRun if true run First run form if false run Login form
 
-            string Firstrun = System.Configuration.ConfigurationManager.AppSettings["FirstRun"];
+            bool Firstrun = bool.Parse(ConfigurationManager.AppSettings["FirstRun"]);
 
-            if (Firstrun == "true")
+            if (Firstrun == true)
             {
                 Frm_FirstRun FirstRun = new Frm_FirstRun();
                 FirstRun.ShowDialog();
@@ -44,7 +44,6 @@ namespace GCR_Garage_Management
                 Comment out Frm_Login, Uncomment the required form to test
                 Main Form will not run with Logged User as Blank
             */
-
             //Frm_FirstRun frm = new Frm_FirstRun(); //First Run Form
             //Frm_CreateDatabase frm = new Frm_CreateDatabase(); //Create Database Form
             //Frm_NewUser frm = new Frm_NewUser(); // Create User Form
@@ -129,14 +128,16 @@ namespace GCR_Garage_Management
                 frm.ShowDialog();
         }
 
-        private void tsm_Search_MouseLeave(object sender, EventArgs e)
+        private void infoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tsm_Search.Text = "Vehicle Reg";
+            frm_About frm = new frm_About();
+            frm.ShowDialog();
         }
 
-        private void tsm_Search_MouseEnter(object sender, EventArgs e)
+        private void editDatabaseSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tsm_Search.Text = "";
+            frm_DatabaseManagement frm = new frm_DatabaseManagement();
+            frm.ShowDialog();
         }
     }
 }

@@ -52,7 +52,7 @@ namespace GCR_Garage_Management
                     {
                         MessageBox.Show(ex.Message, "Error");
                     }
-
+                    con.Close();
                     this.Close();
                 }
             }

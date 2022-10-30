@@ -47,7 +47,6 @@ namespace GCR_Garage_Management
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_UpdateSoftware = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsm_Search = new System.Windows.Forms.ToolStripTextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.ts_Progress = new System.Windows.Forms.ToolStripProgressBar();
             this.lblUserLoggedIn = new System.Windows.Forms.ToolStripStatusLabel();
@@ -65,11 +64,10 @@ namespace GCR_Garage_Management
             this.tsm_Jobs,
             this.exitApplicationToolStripMenuItem,
             this.tsm_Admin,
-            this.aboutToolStripMenuItem,
-            this.tsm_Search});
+            this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1008, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(1008, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "MainMenu";
             // 
@@ -81,7 +79,7 @@ namespace GCR_Garage_Management
             this.tsb_DeleteExistingJob});
             this.tsm_Jobs.Image = ((System.Drawing.Image)(resources.GetObject("tsm_Jobs.Image")));
             this.tsm_Jobs.Name = "tsm_Jobs";
-            this.tsm_Jobs.Size = new System.Drawing.Size(127, 23);
+            this.tsm_Jobs.Size = new System.Drawing.Size(127, 20);
             this.tsm_Jobs.Text = "Job Management";
             // 
             // tsm_CreateNewJob
@@ -110,7 +108,7 @@ namespace GCR_Garage_Management
             this.exitApplicationToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.exitApplicationToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitApplicationToolStripMenuItem.Image")));
             this.exitApplicationToolStripMenuItem.Name = "exitApplicationToolStripMenuItem";
-            this.exitApplicationToolStripMenuItem.Size = new System.Drawing.Size(118, 23);
+            this.exitApplicationToolStripMenuItem.Size = new System.Drawing.Size(118, 20);
             this.exitApplicationToolStripMenuItem.Text = "Exit Application";
             this.exitApplicationToolStripMenuItem.Click += new System.EventHandler(this.exitApplicationToolStripMenuItem_Click);
             // 
@@ -124,7 +122,7 @@ namespace GCR_Garage_Management
             this.tsm_Admin.Image = ((System.Drawing.Image)(resources.GetObject("tsm_Admin.Image")));
             this.tsm_Admin.Name = "tsm_Admin";
             this.tsm_Admin.ShowShortcutKeys = false;
-            this.tsm_Admin.Size = new System.Drawing.Size(114, 23);
+            this.tsm_Admin.Size = new System.Drawing.Size(114, 20);
             this.tsm_Admin.Text = "Administration";
             // 
             // softwareUsersToolStripMenuItem
@@ -135,14 +133,14 @@ namespace GCR_Garage_Management
             this.modifyUserToolStripMenuItem});
             this.softwareUsersToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("softwareUsersToolStripMenuItem.Image")));
             this.softwareUsersToolStripMenuItem.Name = "softwareUsersToolStripMenuItem";
-            this.softwareUsersToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.softwareUsersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.softwareUsersToolStripMenuItem.Text = "Users";
             // 
             // createNewUserToolStripMenuItem
             // 
             this.createNewUserToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("createNewUserToolStripMenuItem.Image")));
             this.createNewUserToolStripMenuItem.Name = "createNewUserToolStripMenuItem";
-            this.createNewUserToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.createNewUserToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.createNewUserToolStripMenuItem.Text = "Create New User";
             this.createNewUserToolStripMenuItem.Click += new System.EventHandler(this.createNewUserToolStripMenuItem_Click);
             // 
@@ -150,7 +148,7 @@ namespace GCR_Garage_Management
             // 
             this.deleteUserToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteUserToolStripMenuItem.Image")));
             this.deleteUserToolStripMenuItem.Name = "deleteUserToolStripMenuItem";
-            this.deleteUserToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.deleteUserToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deleteUserToolStripMenuItem.Text = "Delete User";
             this.deleteUserToolStripMenuItem.Click += new System.EventHandler(this.deleteUserToolStripMenuItem_Click);
             // 
@@ -158,7 +156,7 @@ namespace GCR_Garage_Management
             // 
             this.modifyUserToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("modifyUserToolStripMenuItem.Image")));
             this.modifyUserToolStripMenuItem.Name = "modifyUserToolStripMenuItem";
-            this.modifyUserToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.modifyUserToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modifyUserToolStripMenuItem.Text = "Modify User";
             this.modifyUserToolStripMenuItem.Click += new System.EventHandler(this.modifyUserToolStripMenuItem_Click);
             // 
@@ -168,21 +166,22 @@ namespace GCR_Garage_Management
             this.editDatabaseSettingsToolStripMenuItem});
             this.databaseToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("databaseToolStripMenuItem.Image")));
             this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
-            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.databaseToolStripMenuItem.Text = "Database";
             // 
             // editDatabaseSettingsToolStripMenuItem
             // 
             this.editDatabaseSettingsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editDatabaseSettingsToolStripMenuItem.Image")));
             this.editDatabaseSettingsToolStripMenuItem.Name = "editDatabaseSettingsToolStripMenuItem";
-            this.editDatabaseSettingsToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.editDatabaseSettingsToolStripMenuItem.Text = "Edit Database Settings";
+            this.editDatabaseSettingsToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.editDatabaseSettingsToolStripMenuItem.Text = "Database Management";
+            this.editDatabaseSettingsToolStripMenuItem.Click += new System.EventHandler(this.editDatabaseSettingsToolStripMenuItem_Click);
             // 
             // tsm_Logs
             // 
             this.tsm_Logs.Image = ((System.Drawing.Image)(resources.GetObject("tsm_Logs.Image")));
             this.tsm_Logs.Name = "tsm_Logs";
-            this.tsm_Logs.Size = new System.Drawing.Size(122, 22);
+            this.tsm_Logs.Size = new System.Drawing.Size(180, 22);
             this.tsm_Logs.Text = "Logs";
             // 
             // aboutToolStripMenuItem
@@ -193,34 +192,23 @@ namespace GCR_Garage_Management
             this.tsm_UpdateSoftware});
             this.aboutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aboutToolStripMenuItem.Image")));
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(68, 23);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // infoToolStripMenuItem
             // 
             this.infoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("infoToolStripMenuItem.Image")));
             this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            this.infoToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.infoToolStripMenuItem.Text = "Information";
+            this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
             // 
             // tsm_UpdateSoftware
             // 
             this.tsm_UpdateSoftware.Image = ((System.Drawing.Image)(resources.GetObject("tsm_UpdateSoftware.Image")));
             this.tsm_UpdateSoftware.Name = "tsm_UpdateSoftware";
-            this.tsm_UpdateSoftware.Size = new System.Drawing.Size(161, 22);
+            this.tsm_UpdateSoftware.Size = new System.Drawing.Size(180, 22);
             this.tsm_UpdateSoftware.Text = "Update Software";
-            // 
-            // tsm_Search
-            // 
-            this.tsm_Search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tsm_Search.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.tsm_Search.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.tsm_Search.Name = "tsm_Search";
-            this.tsm_Search.Size = new System.Drawing.Size(100, 23);
-            this.tsm_Search.Text = "Vehicle Reg";
-            this.tsm_Search.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tsm_Search.MouseEnter += new System.EventHandler(this.tsm_Search_MouseEnter);
-            this.tsm_Search.MouseLeave += new System.EventHandler(this.tsm_Search_MouseLeave);
             // 
             // statusStrip1
             // 
@@ -277,7 +265,7 @@ namespace GCR_Garage_Management
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1000, 651);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Recent";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // frm_Main
@@ -292,6 +280,7 @@ namespace GCR_Garage_Management
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimizeBox = false;
             this.Name = "frm_Main";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -331,7 +320,6 @@ namespace GCR_Garage_Management
         public System.Windows.Forms.ToolStripMenuItem tsm_UpdateSoftware;
         private System.Windows.Forms.ToolStripProgressBar ts_Progress;
         private System.Windows.Forms.ToolStripMenuItem tsm_Logs;
-        private System.Windows.Forms.ToolStripTextBox tsm_Search;
         private System.Windows.Forms.TabPage tabPage1;
     }
 }

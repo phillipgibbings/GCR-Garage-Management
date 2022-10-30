@@ -90,3 +90,33 @@ D:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage 
 D:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.csproj.CopyComplete
 D:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.exe
 D:\Source Code\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.pdb
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\bin\Debug\GCR Garage Management.exe.config
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\bin\Debug\GCR Garage Management.exe
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\bin\Debug\GCR Garage Management.pdb
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Buffers.dll
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Memory.dll
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Buffers.xml
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Memory.xml
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.csproj.AssemblyReference.cache
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.csproj.SuggestedBindingRedirects.cache
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Frm_DeleteUser.resources
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Frm_FirstRun.resources
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Frm_CreateDatabase.resources
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Frm_UpdateUser.resources
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Frm_Login.resources
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.frm_Main.resources
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Frm_NewUser.resources
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.Properties.Resources.resources
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.csproj.GenerateResource.cache
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.csproj.CoreCompileInputs.cache
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.csproj.CopyComplete
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.exe
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR Garage Management.pdb
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.frm_About.resources
+C:\Users\phill\Source\Repos\phillipgibbings\GCR-Garage-Management\GCR Garage Management\obj\Debug\GCR_Garage_Management.frm_DatabaseManagement.resources

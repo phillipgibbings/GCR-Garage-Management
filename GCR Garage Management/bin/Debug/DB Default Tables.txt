@@ -1,0 +1,8 @@
+FORMAT
+
+[TABLE NAME] Users->
+					[Column Details]
+					Username, nvarchar(50), not null
+					HashedPassword, nvarchar(max), null
+					PasswordSalt, nvchar(50), null
+					isAdmin(bit, null)

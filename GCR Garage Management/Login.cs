@@ -80,6 +80,7 @@ namespace GCR_Garage_Management
         private void Frm_Login_Load(object sender, EventArgs e)
         {
             this.ActiveControl = txtUsername;
+            this.AcceptButton = btnLogin;
         }
     }
 }

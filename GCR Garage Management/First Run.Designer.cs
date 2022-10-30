@@ -57,7 +57,6 @@ namespace GCR_Garage_Management
             this.btn_DBInitialSearch = new System.Windows.Forms.Button();
             this.cb_DBInitialList = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.gb_SelectDatabase.SuspendLayout();
             this.gb_CreateDatabaseTables.SuspendLayout();
             this.gb_DefaultAdmin.SuspendLayout();
@@ -132,7 +131,6 @@ namespace GCR_Garage_Management
             // 
             // gb_CreateDatabaseTables
             // 
-            this.gb_CreateDatabaseTables.Controls.Add(this.label1);
             this.gb_CreateDatabaseTables.Controls.Add(this.btnCreateTables);
             this.gb_CreateDatabaseTables.Enabled = false;
             this.gb_CreateDatabaseTables.Location = new System.Drawing.Point(13, 304);
@@ -145,7 +143,7 @@ namespace GCR_Garage_Management
             // 
             // btnCreateTables
             // 
-            this.btnCreateTables.Location = new System.Drawing.Point(6, 19);
+            this.btnCreateTables.Location = new System.Drawing.Point(6, 29);
             this.btnCreateTables.Name = "btnCreateTables";
             this.btnCreateTables.Size = new System.Drawing.Size(438, 61);
             this.btnCreateTables.TabIndex = 13;
@@ -294,7 +292,6 @@ namespace GCR_Garage_Management
             this.txt_InitialDBPassword.Name = "txt_InitialDBPassword";
             this.txt_InitialDBPassword.Size = new System.Drawing.Size(365, 20);
             this.txt_InitialDBPassword.TabIndex = 6;
-            this.txt_InitialDBPassword.Text = "1d3m0io48Z!!";
             this.txt_InitialDBPassword.UseSystemPasswordChar = true;
             this.txt_InitialDBPassword.Visible = false;
             // 
@@ -304,7 +301,6 @@ namespace GCR_Garage_Management
             this.txt_InitialDBUsername.Name = "txt_InitialDBUsername";
             this.txt_InitialDBUsername.Size = new System.Drawing.Size(365, 20);
             this.txt_InitialDBUsername.TabIndex = 5;
-            this.txt_InitialDBUsername.Text = "sa";
             this.txt_InitialDBUsername.Visible = false;
             // 
             // lbl_InitialDBpassword
@@ -356,15 +352,6 @@ namespace GCR_Garage_Management
             this.label7.TabIndex = 0;
             this.label7.Text = "Servers :";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 83);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 13);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "only 1 table and 4 colums currently";
-            // 
             // Frm_FirstRun
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -385,7 +372,6 @@ namespace GCR_Garage_Management
             this.gb_SelectDatabase.ResumeLayout(false);
             this.gb_SelectDatabase.PerformLayout();
             this.gb_CreateDatabaseTables.ResumeLayout(false);
-            this.gb_CreateDatabaseTables.PerformLayout();
             this.gb_DefaultAdmin.ResumeLayout(false);
             this.gb_DefaultAdmin.PerformLayout();
             this.gb_InitialDBconnection.ResumeLayout(false);
@@ -423,6 +409,5 @@ namespace GCR_Garage_Management
         public System.Windows.Forms.ComboBox cb_Database;
         public System.Windows.Forms.Button btn_NewDatabase;
         public System.Windows.Forms.Button btn_DatabaseRefresh;
-        private System.Windows.Forms.Label label1;
     }
 }
